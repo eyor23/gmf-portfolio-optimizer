@@ -2,58 +2,67 @@
 
 ## Executive Summary
 
-This report details the development and evaluation of time series forecasting models to predict Tesla's future stock prices. Three modeling approaches were utilized: ARIMA, SARIMA, and LSTM. The models were trained on historical data and assessed based on their predictive accuracy using key evaluation metrics.
+This report summarizes the development and evaluation of time series forecasting models aimed at predicting Tesla's future stock prices. Three methodologies were employed: ARIMA, SARIMA, and LSTM. The models were trained on historical data and evaluated using key performance metrics to determine their forecasting accuracy.
 
 ## Methodology
 
 ### Model Selection
-The following forecasting models were implemented:
+We utilized the following time series forecasting models:
+
 - **ARIMA (AutoRegressive Integrated Moving Average)**: Suitable for univariate time series without seasonality.
-- **SARIMA (Seasonal ARIMA)**: Extends ARIMA to include seasonal effects.
-- **LSTM (Long Short-Term Memory)**: A deep learning model ideal for capturing long-term dependencies in time series data.
+- **SARIMA (Seasonal ARIMA)**: An extension of ARIMA that incorporates seasonality into the modeling process.
+- **LSTM (Long Short-Term Memory)**: A deep learning model designed to capture long-term dependencies and patterns in time series data.
 
-### Data Preparation
-1. **Dataset Division**: The dataset was split into training and testing sets to evaluate model performance effectively.
-2. **Model Training**: Each model was trained using the training set.
+### Model Optimization
+A stepwise search was conducted to minimize the Akaike Information Criterion (AIC) and identify the best ARIMA model parameters. The results of various ARIMA configurations are as follows:
 
-### Optimization and Evaluation
-- **Parameter Optimization**: The ARIMA model parameters were optimized using a stepwise search to minimize the Akaike Information Criterion (AIC).
-- **Evaluation Metrics**:
-  - **Mean Absolute Error (MAE)**
-  - **Root Mean Squared Error (RMSE)**
-  - **Mean Absolute Percentage Error (MAPE)**
-
-### Results
-The following models were assessed:
-
-| Model   | MAE     | RMSE    | MAPE    |
-|---------|---------|---------|---------|
-| ARIMA   | 89.91   | 111.08  | NaN     |
-| SARIMA  | 87.67   | 109.25  | NaN     |
-| LSTM    | 8.20    | 11.63   | 3.36%   |
+| Model Configuration             | AIC        | Time (sec) |
+|---------------------------------|------------|------------|
+| ARIMA(2,1,2)(0,0,0)[0] intercept | 12684.802  | 1.92       |
+| ARIMA(0,1,0)(0,0,0)[0] intercept | 12680.726  | 0.16       |
+| ARIMA(1,1,0)(0,0,0)[0] intercept | 12679.653  | 0.28       |
+| ARIMA(0,1,1)(0,0,0)[0] intercept | 12679.753  | 1.05       |
+| ARIMA(0,1,0)(0,0,0)[0]          | 12678.997  | 0.13       |
+| ARIMA(1,1,1)(0,0,0)[0] intercept | 12680.805  | 3.52       |
 
 ### Best Model
-The best-performing model was identified as the **LSTM**, exhibiting significantly lower MAE and RMSE values compared to ARIMA and SARIMA.
+The best-performing model identified was **ARIMA(0,1,0)(0,0,0)[0]**, with the lowest AIC value of 12678.997. The total fitting time for all models was 7.070 seconds.
+
+### Evaluation Metrics
+Each model was evaluated based on the following metrics:
+
+| Model   | MAE      | RMSE     | MAPE     |
+|---------|----------|----------|----------|
+| ARIMA   | 89.91    | 111.08   | NaN      |
+| SARIMA  | 87.67    | 109.25   | NaN      |
+| LSTM    | 52.10    | 71.83    | 25.17%   |
+
+### LSTM Model Training
+The LSTM model used a sequence length of 60 and was trained with the following configuration:
+
+- **Architecture**: 
+  - Two LSTM layers (50 units each)
+  - One Dense layer with 25 units
+  - One output Dense layer
+  
+- **Optimization**: The model was compiled using the Adam optimizer with a learning rate of 0.001 and trained for 20 epochs with a batch size of 16.
+
+### Performance
+The LSTM model achieved the best performance, significantly outperforming both ARIMA and SARIMA in terms of MAE and RMSE.
 
 ## Visualization
 
 ### TSLA Price Forecasting with ARIMA, SARIMA, and LSTM
 
-TSLA Price Forecasting
-
 #### Interpretation:
-- The graph displays the actual Tesla stock prices alongside the predictions made by ARIMA, SARIMA, and LSTM models.
-- **LSTM Predictions**: The LSTM model closely follows the actual price trends, showcasing its capacity to capture the underlying patterns in the data.
-- **SARIMA Predictions**: The SARIMA model also performs well but exhibits some lag in tracking the actual prices.
-- **ARIMA Predictions**: The ARIMA model shows the least accuracy in following the actual price movements, indicating its limitations in capturing complex patterns compared to LSTM.
+- The graph displays actual Tesla stock prices along with the predictions from ARIMA, SARIMA, and LSTM models.
+- **LSTM Predictions**: The LSTM model closely follows the actual price trends, demonstrating its effectiveness in capturing complex patterns in the data.
+- **SARIMA Predictions**: The SARIMA model provides a reasonable approximation but lags behind the actual prices, indicating some limitations in tracking rapid changes.
+- **ARIMA Predictions**: The ARIMA model shows the least accuracy, failing to capture the volatility and trends present in the actual data.
 
 ## Conclusion
 
-The analysis demonstrates that the LSTM model is the most effective approach for forecasting Tesla's stock prices, significantly outperforming traditional ARIMA and SARIMA models. The ability of LSTM to handle non-linear relationships and long-term dependencies in data contributes to its superior predictive performance.
+The analysis confirms that the LSTM model is the most effective approach for forecasting Tesla's stock prices, demonstrating significantly better predictive accuracy compared to traditional ARIMA and SARIMA models. The ability of LSTM to handle non-linear relationships and learn from long sequences contributes to its superior performance.
 
-### Next Steps
-- Implement the LSTM model in a production environment for real-time forecasting.
-- Continuously monitor model performance and retrain with new data to maintain accuracy.
-- Explore additional features and external factors that may influence Tesla's stock prices for further model refinement. 
 
-For more details, the complete analysis can be found in the project repository on [GitHub](link_to_github_report).
+For more detailed insights, please refer to the full project repository on https://github.com/eyor23/gmf-portfolio-optimizer.git
