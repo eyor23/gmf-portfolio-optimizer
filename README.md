@@ -82,7 +82,7 @@ This project aims to:
 ├── requirements.txt
 ├── LICENSE
 
-
+```markdown
 ## Installation
 
 1. Clone the repository:
@@ -171,3 +171,4 @@ This project is licensed under the MIT License. See the [LICENSE] file for detai
 
 Eyor Getachew
 March 14, 2025
+```
