@@ -1,7 +1,7 @@
 # gmf-portfolio-optimizer
 A data-driven portfolio optimization and forecasting tool by Guide Me in Finance (GMF) Investments. This project leverages real-time market data, statistical modeling, and machine learning to enhance asset allocation and maximize risk-adjusted returns.
 
-```markdown
+
 
 This repository contains the code and documentation for a project that focuses on predicting stock market prices using LSTM models and optimizing a portfolio based on these predictions.
 
@@ -57,8 +57,7 @@ This project aims to:
   - Included interactive elements for user input and customization.
 
 ## Repository Structure
-
-
+```markdown
 ├── notebooks/
 │   ├── eda.ipynb # Used for EDA
 │   ├── forecast_future_market_trends.ipynb # Used for market trend forecasting
@@ -81,8 +80,8 @@ This project aims to:
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
+```
 
-```markdown
 ## Installation
 
 1. Clone the repository:
@@ -90,21 +89,19 @@ This project aims to:
    ```bash
    git clone [repository URL]
    cd [repository directory]
-   ```
-
+   
 2. Create a virtual environment (optional but recommended):
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On macOS/Linux
-   venv\Scripts\activate  # On Windows
-   ```
+   venv\Scripts\activate ``` # On Windows
 
 3. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
-   ```
+
 
 ## Usage
 
@@ -113,7 +110,7 @@ This project aims to:
    ```bash
    python src/eda.py  # For exploratory data analysis
    python src/time_series_forecast.py  # For time series forecasting and modeling
-   ```
+   
 
 2. **Run the Jupyter notebooks for detailed analysis:**
    - Open Jupyter Notebook and run the following notebooks:
@@ -126,7 +123,7 @@ This project aims to:
 
    ```bash
    streamlit run dashboard/app_py.py
-   ```
+   
 
 ## Dependencies
 
@@ -171,4 +168,3 @@ This project is licensed under the MIT License. See the [LICENSE] file for detai
 
 Eyor Getachew
 March 14, 2025
-```
