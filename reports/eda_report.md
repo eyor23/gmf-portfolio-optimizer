@@ -130,4 +130,4 @@ The exploratory data analysis reveals significant insights into the performance 
 
 ---
 
-For further details, please refer to the full report available on [GitHub](link_to_github_report).
+For further details, please refer to the full report available on [GitHub] https://github.com/eyor23/gmf-portfolio-optimizer.git
