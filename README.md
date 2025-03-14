@@ -58,7 +58,7 @@ This project aims to:
 
 ## Repository Structure
 
-```
+
 ├── notebooks/
 │   ├── eda.ipynb # Used for EDA
 │   ├── forecast_future_market_trends.ipynb # Used for market trend forecasting
@@ -81,7 +81,7 @@ This project aims to:
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
-```
+
 
 ## Installation
 
