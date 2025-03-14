@@ -4,7 +4,4 @@ gmfvenv/
 # VS Code settings
 .vscode/
 
-# Data
-data/
-
 .github
